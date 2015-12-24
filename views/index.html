@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>WebSockets</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="/scripts/present.js"></script>
+	
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<link rel="stylesheet" href="/css/style.css" />
+	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<link rel="stylesheet" href="/css/prism.css" />
+</head>
+<body>
+	<div id="carousel">
+		<div id="sockets-container" class="hidden">
+			<ul id="socket-list" class="list-group">
+			</ul>
+		</div>
+		<div id="message" class="alert alert-info message hidden" role="alert"></div>
+		<ul id="main-list">
+			<li id="1">
+				<h1 class="centered">WebSockets<br /><small>with Node.js</small></h1>
+
+				<div id="logo-container">
+					<img src="images/nodejs-logo.png" height="150" width="300" alt="Node.js" />
+					<img src="images/socket-io.png" height="150" width="298" alt="socket-io" />
+				</div>
+			</li>
+
+			<li id="2">
+				<h1>Let's use WebSockets right now!</h1>
+
+				<div class="list-group">
+				  <a class="list-group-item active">
+				    <h4 class="list-group-item-heading">This presentation was created using WebSockets and Node.js!</h4>
+				    <p class="list-group-item-text">
+				    	Wow! Way to go, Matt! You're so cool. THIS IS THE BEST PRESENTATION EVER!!!
+				    </p>
+				  </a>
+				</div>
+
+				<h1 class="centered"><small>Connect to:</small> </h1>
+			</li>
+
+			<li id="3">
+				<h1><small>What is</small> Node.js?</h1>
+
+				<div class="left-image">
+					<div class="list-group">
+					  <a class="list-group-item active">
+					    <h4 class="list-group-item-heading">Open source, cross-platform runtime environment for
+					    	server-side and networking applications
+					    </h4>
+					    <p class="list-group-item-text">
+					    	(Says Wikipedia)
+					    </p>
+					  </a>
+					</div>
+
+					<div class="list-group">
+					  <a class="list-group-item active">
+					    <h4 class="list-group-item-heading">JavaScript!</h4>
+					    <p class="list-group-item-text">
+					    	Node is written in all JavaScript, which is a language used most prominently in web browsers for front-end code.
+					    </p>
+					  </a>
+					</div>
+
+					<div class="list-group">
+					  <a class="list-group-item active">
+					    <h4 class="list-group-item-heading">Event driven!</h4>
+					    <p class="list-group-item-text">
+					    	Programs written in Node.js usually focus on a change of state.
+					    </p>
+					  </a>
+					</div>
+
+					<div class="list-group">
+					  <a class="list-group-item active">
+					    <h4 class="list-group-item-heading">The ShamrockORDERS Express project</h4>
+					    <p class="list-group-item-text">
+					    	We use Node.js as our back-end code.
+					    </p>
+					  </a>
+					</div>
+				</div>
+				<div class="image-container">
+					<img src="images/nodejs.png" height="300" width="300" alt="node" />
+				</div>
+			</li>
+
+			<li id="4">
+				<h1><small>Why use</small> Node.js?</h1>
+				<div class="left-image">
+					<div class="list-group">
+					  <a class="list-group-item active">
+					    <h4 class="list-group-item-heading">It's JavaScript!</h4>
+					    <p class="list-group-item-text">
+					    	We can use JavaScript across the stack for web development, which lessens ramp-up time on projects.
+					    </p>
+					  </a>
+					</div>
+
+					<div class="list-group">
+					  <a class="list-group-item active">
+					    <h4 class="list-group-item-heading">It uses a single, non-blocking thread to handle requests.</h4>
+					    <p class="list-group-item-text">
+					    	The traditional model of handling web requests uses a limited amount of threads. Node.js, on the other hand, can handle tens of thousands of simultaneous connections.
+					    </p>
+					  </a>
+					</div>
+
+					<div class="list-group">
+					  <a class="list-group-item active">
+					    <h4 class="list-group-item-heading">Node.js excels at handling many quick requests at once.</h4>
+					    <p class="list-group-item-text">
+					    	Don't use Node.js in an environment where heavy computations are common. Just don't.
+					    </p>
+					  </a>
+					</div>
+				</div>
+				<div class="image-container">
+					<img src="images/use-javascript.png" height="250" width="300" alt="use javascript" />
+				</div>
+			</li>
+
+			<li id="5">
+				<h1><small>What are</small> WebSockets?</h1>
+
+				<div class="list-group">
+				  <a class="list-group-item active">
+				    <h4 class="list-group-item-heading">A form of communication between client and server</h4>
+				    <p class="list-group-item-text">
+				    	Designed for web browsers and web servers.
+				    </p>
+				  </a>
+				</div>
+
+				<div class="list-group">
+				  <a class="list-group-item active">
+				    <h4 class="list-group-item-heading">TCP connection</h4>
+				    <p class="list-group-item-text">
+				    	Not HTTP
+				    </p>
+				  </a>
+				</div>
+
+				<div class="list-group">
+				  <a class="list-group-item active">
+				    <h4 class="list-group-item-heading">Full-duplex</h4>
+				    <p class="list-group-item-text">
+				    	Allows simultaneous communication in both directions.
+				    </p>
+				  </a>
+				</div>
+
+				<div class="list-group">
+				  <a class="list-group-item active">
+				    <h4 class="list-group-item-heading">Think like a telephone</h4>
+				    <p class="list-group-item-text">
+				    	Client can talk to server whenever it wants, and server can talk to client whenever it wants.
+				    </p>
+				  </a>
+				</div>
+ 			</li>
+
+			<li id="6">
+				<h1><small>How do </small>WebSockets<small> Work?</small></h1>
+
+				<div class="list-group">
+				  <a class="list-group-item active">
+				    <h4 class="list-group-item-heading">1. Client sends an HTTP request to the server.</h4>
+				    <p class="list-group-item-text">
+				    	This is usually a GET.
+				    </p>
+				  </a>
+				</div>
+
+				<div class="list-group">
+				  <a class="list-group-item active">
+				    <h4 class="list-group-item-heading">2. An Upgrade header is included to let the server know it wants a WebSocket connection.</h4>
+				  </a>
+				</div>
+
+				<div class="list-group">
+				  <a class="list-group-item active">
+				    <h4 class="list-group-item-heading">3. If the server agrees to the upgrade, it responds with an Upgrade header.</h4>
+				    <p class="list-group-item-text">
+				    	Hooray!
+				    </p>
+				  </a>
+				</div>
+
+				<div class="list-group">
+				  <a class="list-group-item active">
+				    <h4 class="list-group-item-heading">4. The original HTTP connection is replaced with a WebSocket connection.</h4>
+				    <p class="list-group-item-text">
+				    	Both the client and server can begin to send data.
+				    </p>
+				  </a>
+				</div>
+			</li>
+
+			<li id="7">
+				<h1>WebSocket Headers <small>Example</small></h1>
+
+				<img src="images/websocket-protocol.png" height="482" width="900" alt="socket-io" />
+			</li>
+
+			<li id="8">
+				<h1>Node.js<small> and </small>WebSockets</h1>
+
+				<div class="list-group">
+				  <a class="list-group-item active">
+				    <h4 class="list-group-item-heading">Modules</h4>
+				    <p class="list-group-item-text">
+				    	Code is organized into separate pieces that accomplish a particular piece of functionality.
+				    </p>
+				  </a>
+				</div>
+
+				<div class="list-group">
+				  <a class="list-group-item active">
+				    <h4 class="list-group-item-heading">socket.IO</h4>
+				    <p class="list-group-item-text">
+				    	Event-driven library that helps us use WebSockets.
+				    </p>
+				  </a>
+				</div>
+
+				<h1 class="centered">Basically, someone made it really easy for us.</h1>
+				<h1 class="centered"><small>We don't actually handle all of the handshakes.</small></h1>
+			</li>
+
+			<li id="9">
+				<h1>Socket.io API <small>(reduced version)</small></h1>
+
+				<div class="list-group">
+					<a class="list-group-item active">
+						<h4 class="thin"><code class="language-javascript">listen(app, options)</code></h3>
+						<p class="list-group-item-text">
+					    	Attaches the Server to an engine.io instance on <code>app</code> with the supplied <code>options</code> (optionally).
+					    </p>
+					</a>
+				</div>
+
+				<div class="list-group">
+					<a class="list-group-item active">
+						<h4 class="thin"><code class="language-javascript">connect(address)</code></h3>
+						<p class="list-group-item-text">
+					    	Connects a client to a web socket at the specified <code>address</code>.
+					    </p>
+					</a>
+				</div>
+
+				<div class="list-group">
+					<a class="list-group-item active">
+						<h4 class="thin"><code class="language-javascript">emit(event, data)</code></h3>
+						<p class="list-group-item-text">
+					    	Emits <code>event</code> to all connected clients, along with any associated <code>data</code>.
+					    </p>
+					</a>
+				</div>
+
+				<div class="list-group">
+					<a class="list-group-item active">
+						<h4 class="thin"><code class="language-javascript">on(event, callback)</code></h3>
+						<p class="list-group-item-text">
+					    	Listens for specified <code>event</code> and calls <code>callback</code> function.
+					    </p>
+					</a>
+				</div>
+			</li>
+
+			<li id="10">
+				<h1>Server-side NodeJS Code</h1>
+				<pre class="line-numbers language-javascript" data-src="/code/server1.js"></pre>				
+			</li>
+
+			<li id="11">
+				<h1>Server-side NodeJS Code</h1>
+				<pre class="line-numbers language-javascript" data-src="/code/server2.js"></pre>				
+			</li>
+
+			<li id="12">
+				<h1>Client-side JavaScript</h1>
+				<pre class="line-numbers language-javascript" data-src="/code/present1.js"></pre>				
+			</li>
+
+			<li id="13">
+				<h1>Client-side JavaScript</h1>
+				<pre class="line-numbers language-javascript" data-src="/scripts/present.js"></pre>				
+			</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="/scripts/prism.js"></script>
+</body>
+</html>

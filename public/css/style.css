@@ -1,0 +1,80 @@
+/* Beginning of code for homepage */
+a{
+    text-decoration: none;
+}
+a img{
+    border: 0;
+}
+body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #F9FAF9 !important;
+}
+.hidden{
+    display: none;
+}
+.italic{
+	font-style: italic;
+}
+.centered{
+	text-align: center;
+}
+.thin{
+	font-weight: 300;
+	font-size: 24px;
+}
+ul{
+	height: 100%;
+}
+ul li{
+	height: 100%;
+	width: 100%;
+	padding-right: 50px;
+	margin: 0;
+	float: left;
+	list-style: none;
+	overflow: auto;
+}
+#logo-container{
+	width: 300px;
+	margin: 0 auto;
+}
+#main-list{
+	width: 100%;
+}
+#carousel{
+	height: 100vh;
+}
+#easy-container{
+	width: 70%;
+	margin: 0 auto;
+}
+.left-image{
+	width: 65%;
+	float: left;
+}
+.image-container{
+	width: 30%;
+	float: left;
+}
+.message{
+	position: fixed;
+    right: 13px;
+    top: 1px;
+}
+#sockets-container{
+	position: fixed;
+    right: 13px;
+    top: 54px;
+    cursor: pointer;
+    width: 210px;
+    z-index: 999;
+}
+#sockets-container ul li:hover{
+	background-color: #E6E6E6 !important;
+}
+.presenter{
+	background-color: #DFF0D8 !important;
+}
